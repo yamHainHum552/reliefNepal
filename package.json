@@ -1,0 +1,22 @@
+{
+  "name": "relief-nepal",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["apps/web", "apps/api", "packages/shared"],
+  "scripts": {
+    "dev": "concurrently -n web,api -c green,blue \"npm:dev:web\" \"npm:dev:api\"",
+    "dev:web": "npm --workspace @relief-nepal/web run dev",
+    "dev:api": "npm --workspace @relief-nepal/api run dev",
+    "build": "npm --workspace @relief-nepal/web run build",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --test apps/api/tests/*.test.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "^15.1.3",
+    "prettier": "^3.4.2"
+  }
+}

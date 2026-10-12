@@ -1,0 +1,1 @@
+-- Seed data is intentionally empty. Add only reviewed, non-sensitive reference data here.

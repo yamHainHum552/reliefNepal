@@ -1,0 +1,12 @@
+{
+  "name": "@relief-nepal/shared",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./constants/*": "./constants/*.js",
+    "./schemas/*": "./schemas/*.js",
+    "./utils/*": "./utils/*.js"
+  },
+  "dependencies": { "zod": "^3.24.1" }
+}
