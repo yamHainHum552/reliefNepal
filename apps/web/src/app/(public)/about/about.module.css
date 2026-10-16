@@ -1,0 +1,818 @@
+﻿.page {
+  --blue: #07569b;
+  --blue-dark: #073d78;
+  --blue-light: #e9f4ff;
+  --green: #258447;
+  --green-light: #eaf7ed;
+  --text: #24364b;
+  --muted: #61748a;
+  --border: #d5e5f2;
+
+  color: var(--text);
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.container {
+  width: min(1200px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+
+/* HERO */
+
+.hero {
+  min-height: 390px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+  overflow: hidden;
+  background: #ffffff;
+  color: #ffffff;
+}
+
+.heroSlides {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+/* Removed the blue overlay from the slideshow */
+
+.heroSlide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.heroSlideActive {
+  opacity: 1;
+}
+
+.hero .container {
+  position: relative;
+  padding-block: 75px;
+}
+
+/* Hero text */
+
+.hero .eyebrow {
+  color: #9ce5a8;
+}
+
+.hero h1 {
+  max-width: 760px;
+  color: #ffffff;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1.12;
+  margin: 0 0 22px;
+  font-weight: 800;
+}
+
+.heroText {
+  max-width: 720px;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* SHARED SECTION STYLES */
+
+.principles,
+.boardSection,
+.orgSection,
+.direction,
+.journey {
+  padding: 76px 0;
+}
+
+.sectionHeading {
+  max-width: 820px;
+  margin-bottom: 32px;
+}
+
+.sectionHeading h2 {
+  font-size: clamp(1.8rem, 3.4vw, 2.65rem);
+  line-height: 1.2;
+  color: var(--blue-dark);
+  margin: 0 0 14px;
+  font-weight: 800;
+}
+
+.sectionHeading > p:last-child:not(.eyebrow) {
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* VISION, MISSION, GOAL AND OBJECTIVES */
+
+.principles {
+  background: #f7fbff;
+}
+
+.principleGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+.principleCard {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--blue);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 8px 25px rgba(13, 68, 112, 0.055);
+}
+
+.principleCard:nth-child(even) {
+  border-top-color: var(--green);
+}
+
+.number {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  background: var(--blue-light);
+  color: var(--blue);
+  border-radius: 50%;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.principleCard h3 {
+  color: var(--blue-dark);
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+}
+
+.principleCard > p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.objectivesCard {
+  grid-column: 1 / -1;
+  border-top-color: var(--green);
+}
+
+.objectiveList {
+  list-style: none;
+  padding: 0;
+  margin: 26px 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.objectiveList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 17px;
+  border-radius: 8px;
+  background: #f5f9fd;
+}
+
+.objectiveNumber {
+  flex: 0 0 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--green-light);
+  color: var(--green);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.objectiveList li p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 0.94rem;
+}
+
+/* BOARD MEMBERS TABLE */
+
+.boardSection {
+  background: #ffffff;
+}
+
+.boardSection .sectionHeading {
+  margin-bottom: 30px;
+}
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #b9d8f2;
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(7, 61, 120, 0.07);
+  -webkit-overflow-scrolling: touch;
+}
+
+.boardTable {
+  width: 100%;
+  min-width: 1050px;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+  font-size: 0.87rem;
+}
+
+.boardTable th {
+  padding: 17px 14px;
+  color: #ffffff;
+  background: var(--blue);
+  font-weight: 700;
+  line-height: 1.5;
+  white-space: normal;
+}
+
+.boardTable th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.boardTable th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.boardTable td {
+  padding: 15px 14px;
+  border-bottom: 1px solid #e1edf6;
+  line-height: 1.65;
+  vertical-align: middle;
+}
+
+.boardTable tbody tr:nth-child(even) {
+  background: #f1f8fe;
+}
+
+.boardTable tbody tr:hover {
+  background: #e7f5ec;
+}
+
+.boardTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.boardTable td:first-child,
+.boardTable th:first-child,
+.boardTable td:last-child,
+.boardTable th:last-child {
+  text-align: center;
+}
+
+.boardTable a {
+  color: var(--blue);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.boardTable a:hover {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+.memberName {
+  color: var(--blue-dark);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.memberNumber {
+  display: inline-grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  color: #ffffff;
+  background: var(--green);
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.tableNote {
+  color: var(--muted);
+  font-size: 0.83rem;
+  margin-top: 14px;
+}
+
+/* ORGANIZATIONAL STRUCTURE */
+
+.orgSection {
+  --org-blue: #07569b;
+  --org-green: #258447;
+
+  padding: 76px 0;
+  background: linear-gradient(180deg, #f1f8ff, #f7fcf8);
+}
+
+.orgChart {
+  padding: 36px 28px 42px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(7, 61, 120, 0.07);
+  overflow: hidden;
+}
+
+/* ALL ORGANIZATIONAL NODES */
+
+.orgNode {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 58px;
+  padding: 12px 15px;
+  border: 1px solid;
+  border-radius: 7px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 750;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.blue {
+  color: #07569b;
+  background: #e4f2ff;
+  border-color: #77b9f4;
+}
+
+.green {
+  color: #17683a;
+  background: #e5f6e8;
+  border-color: #83c795;
+}
+
+.lightBlue {
+  color: #07569b;
+  background: #f0f8ff;
+  border-color: #a8d2f5;
+}
+
+.lightGreen {
+  color: #17683a;
+  background: #f0faf2;
+  border-color: #a7d9b2;
+}
+
+/* VERTICAL ARROW */
+
+.orgArrow {
+  position: relative;
+  display: block;
+  flex: none;
+  width: 2px;
+  height: 20px;
+  margin: 0 auto;
+  background: var(--org-green);
+}
+
+.orgArrow::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 8px solid var(--org-green);
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+}
+
+/* LEVEL 1: GENERAL ASSEMBLY */
+
+.orgTop {
+  width: min(420px, 100%);
+  margin: 0 auto;
+}
+
+/* LEVEL 2: BOARD AND SUPPORTING BODIES */
+
+.orgLeadership {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 1.25fr) minmax(0, 1fr);
+  grid-template-rows: 58px 20px 58px;
+  column-gap: 28px;
+  align-items: center;
+  position: relative;
+}
+
+/* Advisory Committee aligns with Executive Board. */
+
+.supportAdvisory {
+  grid-column: 1;
+  grid-row: 1;
+  position: relative;
+}
+
+/* Horizontal line ends at the Executive Board. */
+
+.supportAdvisory::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 28px;
+  height: 2px;
+  background: var(--org-green);
+}
+
+/* Human Resource aligns with Team Leader. */
+
+.supportHR {
+  grid-column: 1;
+  grid-row: 3;
+  position: relative;
+}
+
+.supportHR::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 28px;
+  height: 2px;
+  background: var(--org-green);
+}
+
+.orgMainLevels {
+  grid-column: 2;
+  grid-row: 1 / 4;
+  display: grid;
+  grid-template-rows: 58px 20px 58px;
+  align-items: center;
+  min-width: 0;
+}
+
+/* LEVEL 3: MANAGEMENT BRANCH */
+
+.managementTree {
+  position: relative;
+  padding-top: 42px;
+}
+
+/* Stem descending from Team Leader to the management bus. */
+
+.branchStem {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 21px;
+  transform: translateX(-50%);
+  background: var(--org-green);
+}
+
+/* Horizontal bus joining the three management positions. */
+
+.managementRow {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.managementRow::before {
+  content: "";
+  position: absolute;
+  top: -21px;
+  left: 16.6667%;
+  right: 16.6667%;
+  height: 2px;
+  background: var(--org-green);
+}
+
+/* Individual branches from bus to management nodes. */
+
+.managementRow > .orgNode::before {
+  content: "";
+  position: absolute;
+  top: -21px;
+  left: 50%;
+  width: 2px;
+  height: 21px;
+  transform: translateX(-50%);
+  background: var(--org-green);
+}
+
+.managementRow > .orgNode::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 8px solid var(--org-green);
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+}
+
+.managementRow > .orgNode {
+  min-height: 60px;
+}
+
+/* LEVEL 4: DEPARTMENT BRANCHES */
+
+.departmentTree {
+  position: relative;
+  padding-top: 42px;
+}
+
+/* Stem connecting the management level to the department bus. */
+
+.departmentStem {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 21px;
+  transform: translateX(-50%);
+  background: var(--org-green);
+}
+
+/* Four evenly spaced departments. */
+
+.departmentGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Horizontal connector spans all four department branches. */
+
+.departmentGrid::before {
+  content: "";
+  position: absolute;
+  top: -21px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background: var(--org-green);
+}
+
+/* Separate vertical branch for each department. */
+
+.department {
+  position: relative;
+  min-width: 0;
+  background: #fff;
+  border: 1px solid #b8d8ef;
+  border-radius: 8px;
+}
+
+/* Each branch terminates at the top edge of its department card. */
+
+.department::before {
+  content: "";
+  position: absolute;
+  top: -21px;
+  left: 50%;
+  width: 2px;
+  height: 21px;
+  transform: translateX(-50%);
+  background: var(--org-green);
+}
+
+.department::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 8px solid var(--org-green);
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+}
+
+.departmentHeading {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 76px;
+  padding: 13px 10px;
+  border-bottom: 1px solid #b8d8ef;
+  border-radius: 7px 7px 0 0;
+  text-align: center;
+  font-size: 0.84rem;
+  font-weight: 750;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.departmentBlue {
+  color: #07569b;
+  background: #e3f2ff;
+}
+
+.departmentGreen {
+  color: #17683a;
+  background: #e8f7eb;
+}
+
+.department ul {
+  list-style: none;
+  padding: 17px 13px 22px;
+  margin: 0;
+}
+
+.department li {
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.department li:last-child {
+  margin-bottom: 0;
+}
+
+.department li::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--org-green);
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .orgChart {
+    padding: 28px 18px 36px;
+  }
+
+  .orgLeadership {
+    grid-template-columns: minmax(0, 1fr) minmax(210px, 1.25fr) minmax(0, 1fr);
+    column-gap: 14px;
+  }
+
+  .supportAdvisory::after,
+  .supportHR::after {
+    width: 14px;
+  }
+
+  .managementRow {
+    gap: 14px;
+  }
+
+  .departmentGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 18px;
+    row-gap: 42px;
+  }
+
+  .departmentGrid::before {
+    left: 25%;
+    right: 25%;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+  .orgSection {
+    padding: 48px 0;
+  }
+
+  .orgChart {
+    padding: 22px 14px 30px;
+  }
+
+  .orgNode {
+    min-height: 54px;
+    padding: 11px;
+    font-size: 0.85rem;
+  }
+
+  .orgTop {
+    width: 100%;
+  }
+
+  /*
+    Stack supporting bodies without absolute positioning
+    so they cannot overlap the leadership nodes.
+  */
+
+  .orgLeadership {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .orgMainLevels {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 54px 20px 54px;
+  }
+
+  .supportAdvisory,
+  .supportHR {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    margin-top: 14px;
+  }
+
+  .supportAdvisory::after,
+  .supportHR::after {
+    display: none;
+  }
+
+  .managementTree {
+    padding-top: 34px;
+  }
+
+  .branchStem {
+    height: 17px;
+  }
+
+  .managementRow {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  /*
+    On mobile, use a vertical connector rather than
+    a horizontal bus for the management positions.
+  */
+
+  .managementRow::before {
+    top: -17px;
+    bottom: 30px;
+    left: 50%;
+    right: auto;
+    width: 2px;
+    height: auto;
+    transform: translateX(-50%);
+  }
+
+  .managementRow > .orgNode::before {
+    top: -17px;
+    height: 17px;
+  }
+
+  .managementRow > .orgNode {
+    min-height: 54px;
+  }
+
+  .departmentTree {
+    padding-top: 28px;
+  }
+
+  .departmentStem {
+    height: 14px;
+  }
+
+  .departmentGrid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .departmentGrid::before {
+    top: -20px;
+    bottom: 30px;
+    left: 50%;
+    right: auto;
+    width: 2px;
+    height: auto;
+    transform: translateX(-50%);
+  }
+
+  .department::before {
+    top: -20px;
+    height: 20px;
+  }
+
+  .departmentHeading {
+    min-height: 58px;
+    padding: 13px;
+  }
+
+  .department ul {
+    padding: 16px 18px 20px;
+  }
+}
+

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 
-const links = [['About', '/about'], ['Our Work', '/our-work'], ['Impact', '/impact'], ['Stories', '/stories'], ['Get Involved', '/get-involved'], ['Transparency', '/transparency'], ['Contact', '/contact']];
+const links = [['About', '/about'], ['Our Work', '/our%20work'], ['Impact', '/impact'], ['Stories', '/stories'], ['Get Involved', '/get-involved'], ['Transparency', '/transparency'], ['Contact', '/contact']];
 
 export default function MobileNavigation() {
   const [open, setOpen] = useState(false);

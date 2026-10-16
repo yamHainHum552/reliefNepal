@@ -8,3 +8,14 @@ coverage/
 *.log
 .DS_Store
 apps/web/.vercel/
+
+
+# Large video and audio files - keep locally, do not upload to ordinary Git
+apps/web/public/images/*.mp4
+apps/web/public/images/*.MP4
+apps/web/public/images/*.mov
+apps/web/public/images/*.MOV
+apps/web/public/images/*.mp3
+apps/web/public/images/*.MP3
+
+
