@@ -1,0 +1,19 @@
+# .htaccess for cPanel Node.js (Phusion Passenger)
+# Place this in your cPanel app root (same folder as passenger_wsgi.js)
+
+# Ensure Passenger is used
+PassengerEnabled On
+PassengerAppType node
+PassengerStartupFile passenger_wsgi.js
+
+# Environment variables (optional - can also set in cPanel Node.js UI)
+# SetEnv NODE_ENV production
+# SetEnv PORT 4000
+
+# Handle static files if any (optional)
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteCond %{REQUEST_FILENAME} !-f
+#   RewriteCond %{REQUEST_FILENAME} !-d
+#   RewriteRule ^(.*)$ passenger_wsgi.js [L]
+# </IfModule>
