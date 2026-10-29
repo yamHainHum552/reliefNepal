@@ -20,3 +20,6 @@ apps/web/public/images/*.mp3
 apps/web/public/images/*.MP3
 
 
+*.zip
+node_modules.zip
+deploy.zip

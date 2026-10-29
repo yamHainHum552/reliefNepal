@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { newsletterSubscriptionSchema } from '@relief-nepal/shared/schemas/project';
+import { newsletterSubscriptionSchema } from '../../schemas/project.js';
 import { validateBody } from '../../middleware/validate.js';
 import { inquiryController } from './inquiry.controller.js';
 
