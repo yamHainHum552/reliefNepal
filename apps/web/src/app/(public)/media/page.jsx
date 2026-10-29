@@ -1,5 +1,5 @@
-import PhotoGallery from "./photo";
+import { permanentRedirect } from 'next/navigation';
 
 export default function MediaPage() {
-  return <PhotoGallery />;
+  permanentRedirect('/gallery');
 }

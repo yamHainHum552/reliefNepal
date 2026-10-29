@@ -1,10 +1,10 @@
 import { projectRepository } from './project.repository.js';
 
 export const projectService = {
-  list() {
+  async list() {
     return projectRepository.findPublished();
   },
-  getBySlug(slug) {
+  async getBySlug(slug) {
     return projectRepository.findPublishedBySlug(slug);
   },
 };

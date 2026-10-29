@@ -1,9 +1,2 @@
-export const sampleProjects = [
-  {
-    slug: 'sample-community-project',
-    title: 'Sample community project',
-    summary: 'Placeholder project record for demonstrating the public API.',
-    status: 'ongoing',
-    publicationStatus: 'published',
-  },
-];
+export const projectColumns =
+  'id, slug, title, summary, location, donor, period, total_budget, theme, background, status, starts_on, ends_on, banner_url, banner_public_id, program_id, program:programs(name,slug), impact_metrics:project_impact_metrics(id,label,value,unit,reporting_period,measured_on,source,verification_status,display_order), impact_details:project_impact_details(id,title,description,display_order), gallery:gallery_items(id,title,caption,media_type,media_url,thumbnail_url,alt_text,published_at), created_at';

@@ -1,0 +1,449 @@
+/* Relief Nepal hero — replaces your existing .rn-home-hero rules.
+   Adjust the colors below to match your theme. */
+.rn-home-hero {
+  --hero-blue: var(--rn-blue, #174b87);
+  --hero-green: var(--rn-green, #087943);
+  --hero-ink: #ffffff;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: clamp(560px, 88vh, 820px);
+  overflow: hidden;
+  color: var(--hero-ink);
+  background: #0b1a2b;
+  isolation: isolate;
+  outline: none;
+}
+
+/* ------------------------------------------------ slides */
+.rn-home-hero-slides {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+}
+.rn-home-hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.18);
+  transition:
+    opacity 1.4s ease,
+    transform 9s cubic-bezier(0.2, 0.6, 0.2, 1);
+  will-change: opacity, transform;
+}
+/* active slide fades in while slowly zooming out (Ken Burns) */
+.rn-home-hero-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ------------------------------------------------ overlays */
+.rn-home-hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 20, 36, 0.88) 0%,
+      rgba(7, 20, 36, 0.55) 48%,
+      rgba(7, 20, 36, 0.15) 100%
+    ),
+    linear-gradient(0deg, rgba(7, 20, 36, 0.85) 0%, transparent 38%);
+}
+.rn-home-hero-glow {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+.rn-home-hero-glow-a {
+  width: 420px;
+  height: 420px;
+  left: -120px;
+  top: -80px;
+  background: var(--hero-blue);
+  animation: rnHomeHeroDriftA 16s ease-in-out infinite alternate;
+}
+.rn-home-hero-glow-b {
+  width: 360px;
+  height: 360px;
+  right: -80px;
+  bottom: -60px;
+  background: var(--hero-green);
+  animation: rnHomeHeroDriftB 20s ease-in-out infinite alternate;
+}
+
+/* ------------------------------------------------ content */
+.rn-home-hero-content {
+  position: relative;
+  padding-block: 7rem 9rem;
+  max-width: 1180px;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+}
+.rn-home-hero:focus-visible {
+  outline: 3px solid var(--hero-green);
+  outline-offset: -3px;
+}
+.rn-home-hero-eyebrow,
+.rn-home-hero-title,
+.rn-home-hero-text,
+.rn-home-hero-actions {
+  opacity: 0;
+  animation: rnHomeHeroRise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+.rn-home-hero .rn-home-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1.25rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+  animation-delay: 0.1s;
+}
+.rn-home-hero-pulse {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--hero-green);
+}
+.rn-home-hero-pulse::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--hero-green);
+  animation: rnHomeHeroPing 1.8s ease-out infinite;
+}
+.rn-home-hero .rn-home-hero-title {
+  margin: 0 0 1.1rem;
+  max-width: 17ch;
+  font-size: clamp(2.2rem, 5.4vw, 4.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  animation-delay: 0.25s;
+}
+.rn-home-hero .rn-home-hero-text {
+  margin: 0 0 2.2rem;
+  max-width: 54ch;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.86);
+  animation-delay: 0.4s;
+}
+.rn-home-hero .rn-home-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 0;
+  animation-delay: 0.55s;
+}
+
+/* ------------------------------------------------ buttons */
+.rn-home-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.7rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+.rn-home-button svg {
+  transition: transform 0.25s ease;
+}
+.rn-home-button:hover svg {
+  transform: translateX(5px);
+}
+.rn-home-button:hover {
+  transform: translateY(-2px);
+}
+.rn-home-button:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+.rn-home-button-primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--hero-blue), #2f7fd0);
+  box-shadow: 0 10px 28px rgba(31, 95, 166, 0.5);
+}
+.rn-home-button-primary:hover {
+  box-shadow: 0 14px 34px rgba(31, 95, 166, 0.65);
+}
+/* light sweep across the primary button on hover */
+.rn-home-button-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+.rn-home-button-primary:hover::before {
+  animation: rnHomeHeroSweep 0.8s ease;
+}
+.rn-home-button-outline {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px);
+}
+.rn-home-button-outline:hover {
+  background: #fff;
+  color: var(--hero-blue);
+  border-color: #fff;
+}
+
+/* ------------------------------------------------ bottom controls */
+.rn-home-hero-controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr minmax(180px, 2fr) 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding: 0 clamp(1.25rem, 5vw, 3rem) 2rem;
+}
+.rn-home-hero-caption {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  animation: rnHomeHeroFade 0.7s ease both;
+}
+.rn-home-hero-count {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+.rn-home-hero-count i {
+  margin-left: 0.3rem;
+  font-style: normal;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.rn-home-hero-bars {
+  display: flex;
+  gap: 0.5rem;
+}
+.rn-home-hero-bar {
+  flex: 1;
+  height: 22px; /* big click area */
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.rn-home-hero-bar b {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  transition: height 0.25s ease;
+}
+.rn-home-hero-bar:hover b,
+.rn-home-hero-bar.active b {
+  height: 6px;
+}
+.rn-home-hero-bar b::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.rn-home-hero-bar.done b::after {
+  transform: scaleX(1);
+}
+.rn-home-hero-bar.active b::after {
+  animation: rnHomeHeroFill var(--rn-autoplay, 6500ms) linear forwards;
+}
+.rn-home-hero-bar.active.paused b::after {
+  animation-play-state: paused;
+}
+.rn-home-hero-bar:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.rn-home-hero-arrows {
+  justify-self: end;
+  display: flex;
+  gap: 0.6rem;
+}
+.rn-home-hero-arrows button {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+.rn-home-hero-arrows button:hover {
+  background: #fff;
+  color: var(--hero-blue);
+  transform: scale(1.08);
+}
+.rn-home-hero-arrows button:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------ keyframes */
+@keyframes rnHomeHeroRise {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes rnHomeHeroFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes rnHomeHeroFill {
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes rnHomeHeroPing {
+  from {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+@keyframes rnHomeHeroSweep {
+  to {
+    left: 140%;
+  }
+}
+@keyframes rnHomeHeroDriftA {
+  to {
+    transform: translate(120px, 80px) scale(1.2);
+  }
+}
+@keyframes rnHomeHeroDriftB {
+  to {
+    transform: translate(-140px, -60px) scale(1.15);
+  }
+}
+
+/* ------------------------------------------------ responsive */
+@media (max-width: 760px) {
+  .rn-home-hero-shade {
+    background: linear-gradient(
+      0deg,
+      rgba(7, 20, 36, 0.92) 0%,
+      rgba(7, 20, 36, 0.55) 60%,
+      rgba(7, 20, 36, 0.4) 100%
+    );
+  }
+  .rn-home-hero-content {
+    padding-block: 5rem 9rem;
+  }
+  .rn-home-hero-controls {
+    grid-template-columns: 1fr auto;
+    gap: 1rem 1rem;
+  }
+  .rn-home-hero-bars {
+    grid-column: 1 / -1;
+    order: 3;
+  }
+  .rn-home-hero-arrows button {
+    width: 40px;
+    height: 40px;
+  }
+  .rn-home-hero-actions .rn-home-button {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}
+
+/* ------------------------------------------------ reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .rn-home-hero-slide {
+    transform: none;
+    transition: opacity 0.4s ease;
+  }
+  .rn-home-hero-eyebrow,
+  .rn-home-hero-title,
+  .rn-home-hero-text,
+  .rn-home-hero-actions {
+    opacity: 1;
+    animation: none;
+  }
+  .rn-home-hero-glow,
+  .rn-home-hero-pulse::after,
+  .rn-home-hero-caption {
+    animation: none;
+  }
+  .rn-home-hero-bar.active b::after {
+    animation: none;
+    transform: scaleX(1);
+  }
+}

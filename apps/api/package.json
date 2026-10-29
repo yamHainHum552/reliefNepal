@@ -6,7 +6,7 @@
   "scripts": { "dev": "node --watch src/server.js", "start": "node src/server.js", "test": "node --test tests/*.test.js" },
   "dependencies": {
     "@relief-nepal/shared": "*",
-    "@supabase/supabase-js": "^2.47.10",
+    "@supabase/supabase-js": "^2.118.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
